@@ -1,0 +1,27 @@
+<h1 style="font-size: 1.5em;">{{page_title}}</h1>
+
+<form #filter="ngForm">
+    <input type="text" class="form-control" name="filter" id="filter" placeholder="Busca un id de contacto" #filter="ngModel" [(ngModel)]="filtertext" (ngModelChange)="filterchange(filter)">
+</form>
+<br>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id del cliente</th>
+          <th scope="col">Nombre del cliente</th>
+          <th scope="col">Id del contacto</th>
+          <th scope="col">Nombre del cliente</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let element of this.contactosTabla">
+            <tr *ngIf="element.showontable == 1">
+                <th>{{element.id_client}}</th>
+                <td>{{element.name_client}}</td>
+                <td>{{element.id_contact}}</td>
+                <td>{{element.name_contact}}</td>
+              </tr>
+      </tbody>
+
+</table>
